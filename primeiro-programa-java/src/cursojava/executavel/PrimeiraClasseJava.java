@@ -1,5 +1,7 @@
 package cursojava.executavel;
 
+import javax.swing.JOptionPane;
+
 import cursojava.classes.Aluno;
 
 public class PrimeiraClasseJava {
@@ -7,21 +9,38 @@ public class PrimeiraClasseJava {
 	public static void main(String[] args) {
 		
 		/* Objeto ainda não existe na memória, está invalido*/
+		String nome = JOptionPane.showInputDialog("Qual o nome do Aluno?");
+		String idade = JOptionPane.showInputDialog("Qual a idade do Aluno?");
+		String dataNascimento = JOptionPane.showInputDialog("Qual a data de nascimento do Aluno?");
+		String rg = JOptionPane.showInputDialog("Qual o RG do Aluno?");
+		String cpf = JOptionPane.showInputDialog("Qual o CPF do Aluno?");
+		String nomeMae = JOptionPane.showInputDialog("Qual o nome da mãe do Aluno?");
+		String nomePai = JOptionPane.showInputDialog("Qual o nome do pai do Aluno?");
+		String dataMatricula = JOptionPane.showInputDialog("Qual a data da matrícula?");
+		String NomeEscola = JOptionPane.showInputDialog("Qual ao nome da escola?");
+		String serieMatricula = JOptionPane.showInputDialog("Qual a série?");
+		String nota1 = JOptionPane.showInputDialog("Qual a nota 1 do Aluno?");
+		String nota2 = JOptionPane.showInputDialog("Qual a nota 2 do Aluno?");
+		String nota3 = JOptionPane.showInputDialog("Qual a nota 3 do Aluno?");
+		String nota4 = JOptionPane.showInputDialog("Qual a nota 4 do Aluno?");
+		
+		
+		
 		Aluno aluno1 = new Aluno();
-		aluno1.setNome("João");
-		aluno1.setIdade(50);
-		aluno1.setDataNascimento("25/02/1993");
-		aluno1.setRegistroGeral("99.999.999.-6");
-		aluno1.setNumeroCpf("999.999.999-99");
-		aluno1.setNomeMae("Lene");
-		aluno1.setNomePai("cimar");
-		aluno1.setDataMatricula("19/08/2022");
-		aluno1.setNomeEscola("Oscar Brito");
-		aluno1.setSerieMatriculado("3");
-		aluno1.setNota1(90.4);
-		aluno1.setNota2(80.8);
-		aluno1.setNota3(70.9);
-		aluno1.setNota4(60.10);
+		aluno1.setNome(nome);
+		aluno1.setIdade(Integer.valueOf(idade));
+		aluno1.setDataNascimento(dataNascimento);
+		aluno1.setRegistroGeral(rg);
+		aluno1.setNumeroCpf(cpf);
+		aluno1.setNomeMae(nomeMae);
+		aluno1.setNomePai(nomePai);
+		aluno1.setDataMatricula(dataMatricula);
+		aluno1.setNomeEscola(NomeEscola);
+		aluno1.setSerieMatriculado(serieMatricula);
+		aluno1.setNota1(Double.parseDouble(nota1));
+		aluno1.setNota2(Double.parseDouble(nota2));
+		aluno1.setNota3(Double.parseDouble(nota3));
+		aluno1.setNota4(Double.parseDouble(nota4));
 		
 		
 		
