@@ -35,10 +35,13 @@ public class PrimeiraClasseJava {
 		aluno1.setNomeEscola(NomeEscola);
 		aluno1.setSerieMatriculado(serieMatricula);		
 		
+		
+		/* Para cada elemento no objeti disciplina, vou pedira matéria e nota */
 		for (int pos = 1; pos <=4; pos++) {
 			String nomeDisciplina = JOptionPane.showInputDialog("Nome da Disciplina "+pos+" ?");
 			String notaDisciplina = JOptionPane.showInputDialog("Nota da Disciplina "+pos+" ?");
 			
+			/*Instanciando a disciplina e setando no objeto */
 			Disciplina disciplina = new Disciplina();
 			disciplina.setDisciplina(nomeDisciplina);
 			disciplina.setNota(Double.valueOf(notaDisciplina));
@@ -46,6 +49,15 @@ public class PrimeiraClasseJava {
 			aluno1.getDisciplinas().add(disciplina);
 		}
 		
+		
+		
+		/*Removendo disciplinas da lista Aluno */
+		
+		int escolha =JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina ?");
+		if(escolha == 0) {
+			String disciplinaRemover = JOptionPane.showInputDialog("Qual a disciplina 1,2,3 ou 4 ?");
+			aluno1.getDisciplinas().remove(Integer.valueOf(disciplinaRemover).intValue()-1);
+		}
 		
 		
 		
