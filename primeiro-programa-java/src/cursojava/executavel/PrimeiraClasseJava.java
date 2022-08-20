@@ -28,6 +28,7 @@ public class PrimeiraClasseJava {
 		System.out.println("Nome do aluno1 é = " + aluno1.getNome());
 		System.out.println("Idade do aluno1 é = " + aluno1.getIdade());
 		System.out.println("Média da nota é = " + aluno1.getMediaNota());
+		System.out.println("Resultado = " + (aluno1.getAlunoAprovado() ? "Aprovado": "Reprovado"));
 		
 		
 		/* Agora temos um objeto real, na memória*/
