@@ -64,7 +64,7 @@ public class PrimeiraClasseJava {
 		
 		System.out.println(aluno1);
 		System.out.println("Média da nota é = " + aluno1.getMediaNota());
-		System.out.println("Resultado = " + (aluno1.getAlunoAprovado() ? "Aprovado": "Reprovado"));
+		System.out.println("Resultado = " + aluno1.getAlunoAprovado());
 		
 		
 		

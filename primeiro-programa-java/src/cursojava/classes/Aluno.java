@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Aluno {
-	
+
 	private String nome;
 	private int idade;
 	private String dataNascimento;
@@ -16,107 +16,125 @@ public class Aluno {
 	private String dataMatricula;
 	private String nomeEscola;
 	private String serieMatriculado;
-	
+
 	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
-	
+
 	public void setDisciplinas(List<Disciplina> disciplinas) {
 		this.disciplinas = disciplinas;
 	}
+
 	public List<Disciplina> getDisciplinas() {
 		return disciplinas;
-	}	
-	
+	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	public int getIdade() {
 		return idade;
 	}
+
 	public void setIdade(int idade) {
 		this.idade = idade;
 	}
+
 	public String getDataNascimento() {
 		return dataNascimento;
 	}
+
 	public void setDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
+
 	public String getRegistroGeral() {
 		return registroGeral;
 	}
+
 	public void setRegistroGeral(String registroGeral) {
 		this.registroGeral = registroGeral;
 	}
+
 	public String getNumeroCpf() {
 		return numeroCpf;
 	}
+
 	public void setNumeroCpf(String numeroCpf) {
 		this.numeroCpf = numeroCpf;
 	}
+
 	public String getNomeMae() {
 		return nomeMae;
 	}
+
 	public void setNomeMae(String nomeMae) {
 		this.nomeMae = nomeMae;
 	}
+
 	public String getNomePai() {
 		return nomePai;
 	}
+
 	public void setNomePai(String nomePai) {
 		this.nomePai = nomePai;
 	}
+
 	public String getDataMatricula() {
 		return dataMatricula;
 	}
+
 	public void setDataMatricula(String dataMatricula) {
 		this.dataMatricula = dataMatricula;
 	}
+
 	public String getNomeEscola() {
 		return nomeEscola;
 	}
+
 	public void setNomeEscola(String nomeEscola) {
 		this.nomeEscola = nomeEscola;
 	}
+
 	public String getSerieMatriculado() {
 		return serieMatriculado;
 	}
+
 	public void setSerieMatriculado(String serieMatriculado) {
 		this.serieMatriculado = serieMatriculado;
 	}
-	
-	/*Método que retorna a média do Aluno*/
+
+	/* Método que retorna a média do Aluno */
 	public double getMediaNota() {
 		double somaNotas = 0.0;
 		for (Disciplina disciplina : disciplinas) {
 			somaNotas += disciplina.getNota();
-			
+
 		}
 		return somaNotas / disciplinas.size();
 	}
-	public boolean getAlunoAprovado() {
+
+	public String getAlunoAprovado() {
 		double media = this.getMediaNota();
-		if(media >=70 ) {
-			return true;
-		}else {
-			return false;
+		if (media >= 50) {
+			if (media >= 70) {
+				return "Aluno está aprovado";
+			} else {
+				return "Aluno em recuperação";
+			}
+		} else {
+			return "Aluno está reprovado";
 		}
 	}
-	public String getAlunoAprovado2() {
-		double media = this.getMediaNota();
-		if(media >=70 ) {
-			return "Está aprovado";
-		}else {
-			return "Não está aprovado";
-		}
-	}
-	
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(nome, numeroCpf);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -128,6 +146,7 @@ public class Aluno {
 		Aluno other = (Aluno) obj;
 		return Objects.equals(nome, other.nome) && Objects.equals(numeroCpf, other.numeroCpf);
 	}
+
 	@Override
 	public String toString() {
 		return "Aluno [nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
@@ -135,11 +154,5 @@ public class Aluno {
 				+ ", dataMatricula=" + dataMatricula + ", nomeEscola=" + nomeEscola + ", serieMatriculado="
 				+ serieMatriculado + "]";
 	}
-	
-	
-	
-	
 
 }
-
-
