@@ -66,6 +66,7 @@ public class PrimeiraClasseJava {
 			}
 			alunos.add(aluno1);
 		}
+		
 		/* Imprimindo lista de alunos */
 		for (Aluno aluno : alunos) {
 			/* Imprimindo somente se for alex e executando método */
@@ -105,6 +106,35 @@ public class PrimeiraClasseJava {
 		/* Percorrendo a lista com for e descobrindo sua posição */
 		for (int pos = 0; pos < alunos.size(); pos++) {
 			Aluno aluno = alunos.get(pos);
+			System.out.println("Aluno = " + aluno.getNome());
+			System.out.println("Média do aluno =" + aluno.getMediaNota());
+			System.out.println("Resultado = " + aluno.getAlunoAprovado());
+			System.out.println("______________________________________");
+
+			for (Disciplina disc : aluno.getDisciplinas()) {
+				System.out.println("Materia = " + disc.getDisciplina() + "Nota = " + disc.getNota());
+			}
+		}
+		
+		/* Substituindo um aluno */
+		for (int pos = 0; pos < alunos.size(); pos++) {
+			Aluno aluno = alunos.get(pos);
+			
+			if (aluno.getNome().equalsIgnoreCase("Alex")) {
+				Aluno trocar = new Aluno();
+				trocar.setNome("Aluno foi trocado");
+				
+				Disciplina disciplina = new Disciplina();
+				disciplina.setDisciplina("MAtemática");
+				disciplina.setNota(96);
+				
+				trocar.getDisciplinas().add(disciplina);
+				
+				alunos.set(pos, trocar);
+				aluno = alunos.get(pos);
+				
+			}
+			
 			System.out.println("Aluno = " + aluno.getNome());
 			System.out.println("Média do aluno =" + aluno.getMediaNota());
 			System.out.println("Resultado = " + aluno.getAlunoAprovado());
