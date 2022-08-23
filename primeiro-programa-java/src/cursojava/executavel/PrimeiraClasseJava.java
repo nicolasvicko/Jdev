@@ -73,10 +73,15 @@ public class PrimeiraClasseJava {
 		}
 		
 		for (Aluno aluno : alunos) {
-			System.out.println(aluno);
-			System.out.println("Média da nota é = " + aluno.getMediaNota());
-			System.out.println("Resultado = " + aluno.getAlunoAprovado());
-			System.out.println("_______________________________________________");
+			
+			if (aluno.getNome().equalsIgnoreCase("Alex")) {
+				System.out.println(aluno);
+				System.out.println("Média da nota é = " + aluno.getMediaNota());
+				System.out.println("Resultado = " + aluno.getAlunoAprovado());
+				System.out.println("_______________________________________________");
+				break;
+			}
+			
 		}
 
 		
