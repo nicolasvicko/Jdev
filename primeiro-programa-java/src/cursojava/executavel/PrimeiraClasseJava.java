@@ -45,7 +45,7 @@ public class PrimeiraClasseJava {
 			for (int pos = 1; pos <= 4; pos++) {
 				String nomeDisciplina = JOptionPane.showInputDialog("Nome da Disciplina " + pos + " ?");
 				String notaDisciplina = JOptionPane.showInputDialog("Nota da Disciplina " + pos + " ?");
-				
+
 				/* Instanciando a disciplina e setando no objeto */
 				Disciplina disciplina = new Disciplina();
 				disciplina.setDisciplina(nomeDisciplina);
@@ -77,14 +77,14 @@ public class PrimeiraClasseJava {
 				break;
 			}
 		}
-		
+
 		for (Aluno aluno : alunos) {
-			/* Removendo Aluno*/
+			/* Removendo Aluno */
 			if (aluno.getNome().equalsIgnoreCase("Vicko")) {
 				alunos.remove(aluno);
 				System.out.println("_______________________________________________");
 				break;
-			}else {
+			} else {
 				System.out.println(aluno);
 				System.out.println("Média da nota é = " + aluno.getMediaNota());
 				System.out.println("Resultado = " + aluno.getAlunoAprovado());
@@ -92,17 +92,28 @@ public class PrimeiraClasseJava {
 				break;
 			}
 		}
-		
+		/* Imprimindo os que sobraram e suas matérias */
 		for (Aluno aluno : alunos) {
 			System.out.println("Alunos que sobraram da lista");
 			System.out.println(aluno.getNome());
 			System.out.println("Suas materias são:");
-			
+
 			for (Disciplina disciplina : aluno.getDisciplinas()) {
 				System.out.println(disciplina.getDisciplina());
 			}
 		}
+		/* Percorrendo a lista com for e descobrindo sua posição */
+		for (int pos = 0; pos < alunos.size(); pos++) {
+			Aluno aluno = alunos.get(pos);
+			System.out.println("Aluno = " + aluno.getNome());
+			System.out.println("Média do aluno =" + aluno.getMediaNota());
+			System.out.println("Resultado = " + aluno.getAlunoAprovado());
+			System.out.println("______________________________________");
+
+			for (Disciplina disc : aluno.getDisciplinas()) {
+				System.out.println("Materia = " + disc.getDisciplina() + "Nota = " + disc.getNota());
+			}
+		}
 
 	}
-
 }
