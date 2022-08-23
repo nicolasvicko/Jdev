@@ -1,6 +1,7 @@
 package cursojava.executavel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -15,12 +16,10 @@ public class PrimeiraClasseJava {
 
 		List<Aluno> alunos = new ArrayList<Aluno>();
 		
-		List<Aluno> alunosAprovados = new ArrayList<Aluno>();
-		List<Aluno> alunosRecuperacao = new ArrayList<Aluno>();
-		List<Aluno> alunosReprovados = new ArrayList<Aluno>();
+		/* É uma lista que dentro dela temos uma chave que identifica uma sequencia de valores também  */
+		HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();	
 
 		for (int qtd = 1; qtd <= 2; qtd++) {
-
 			/* new Aluno() é uma instância (criação de objeto) */
 			/* Aluno1 é uma referência para o objeto aluno */
 			String nome = JOptionPane.showInputDialog("Qual o nome do Aluno " + qtd + "?");
@@ -46,7 +45,7 @@ public class PrimeiraClasseJava {
 			aluno1.setNomeEscola(NomeEscola);
 			aluno1.setSerieMatriculado(serieMatricula);
 
-			/* Para cada elemento no objeti disciplina, vou pedira matéria e nota */
+			/* Para cada elemento no objeto disciplina, vou pedir a matéria e nota */
 			for (int pos = 1; pos <= 4; pos++) {
 				String nomeDisciplina = JOptionPane.showInputDialog("Nome da Disciplina " + pos + " ?");
 				String notaDisciplina = JOptionPane.showInputDialog("Nota da Disciplina " + pos + " ?");
@@ -72,21 +71,35 @@ public class PrimeiraClasseJava {
 			alunos.add(aluno1);
 		}
 		
+		maps.put(StatusAluno.APROVADO, new ArrayList<Aluno>());
+		maps.put(StatusAluno.RECUPERACAO, new ArrayList<Aluno>());
+		maps.put(StatusAluno.REPROVADO, new ArrayList<Aluno>());
+		
+		
 		for (Aluno aluno : alunos) {
 			if (aluno.getAlunoAprovado().equalsIgnoreCase(StatusAluno.APROVADO)) {
-				alunosAprovados.add(aluno);
+				maps.get(StatusAluno.APROVADO).add(aluno);
 			}else {
 				if (aluno.getAlunoAprovado().equalsIgnoreCase(StatusAluno.RECUPERACAO)) {
-					alunosRecuperacao.add(aluno);
+					maps.get(StatusAluno.RECUPERACAO).add(aluno);
 				} else if (aluno.getAlunoAprovado().equalsIgnoreCase(StatusAluno.REPROVADO)) {
-					alunosReprovados.add(aluno);
+					maps.get(StatusAluno.REPROVADO).add(aluno);
 				}
 			}
 		}
 		
-		System.out.println("---------- Lista doa Aprovados ----------");
-		System.out.println("Lista dos aprovados:");
+		System.out.println("---------- Lista dos Aprovados ----------");
 		for(Aluno aluno : alunosAprovados) {
+			System.out.println("Resultado = " + aluno.getAlunoAprovado()+ " com média de = " + aluno.getMediaNota());
+		}
+		
+		System.out.println("---------- Lista em Reprovados ----------");
+		for(Aluno aluno : alunosReprovados) {
+			System.out.println("Resultado = " + aluno.getAlunoAprovado()+ " com média de = " + aluno.getMediaNota());
+		}
+		
+		System.out.println("---------- Lista dos Recuperação ----------");
+		for(Aluno aluno : alunosRecuperacao) {
 			System.out.println("Resultado = " + aluno.getAlunoAprovado()+ " com média de = " + aluno.getMediaNota());
 		}
 	}
