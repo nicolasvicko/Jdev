@@ -13,6 +13,13 @@ import cursojava.constantes.StatusAluno;
 public class PrimeiraClasseJava {
 
 	public static void main(String[] args) {
+		
+		String login = JOptionPane.showInputDialog("Informe o login: ");
+		String senha = JOptionPane.showInputDialog("Informe a senha: ");
+		
+		if (login.equalsIgnoreCase("admin") && senha.equalsIgnoreCase("admin")) {
+			
+		
 
 		List<Aluno> alunos = new ArrayList<Aluno>();
 		
@@ -89,20 +96,22 @@ public class PrimeiraClasseJava {
 		}
 		
 		System.out.println("---------- Lista dos Aprovados ----------");
-		for(Aluno aluno : alunosAprovados) {
+		for(Aluno aluno : maps.get(StatusAluno.APROVADO)) {
 			System.out.println("Resultado = " + aluno.getAlunoAprovado()+ " com média de = " + aluno.getMediaNota());
 		}
 		
 		System.out.println("---------- Lista em Reprovados ----------");
-		for(Aluno aluno : alunosReprovados) {
+		for(Aluno aluno : maps.get(StatusAluno.REPROVADO)) {
 			System.out.println("Resultado = " + aluno.getAlunoAprovado()+ " com média de = " + aluno.getMediaNota());
 		}
 		
 		System.out.println("---------- Lista dos Recuperação ----------");
-		for(Aluno aluno : alunosRecuperacao) {
+		for(Aluno aluno : maps.get(StatusAluno.RECUPERACAO)) {
 			System.out.println("Resultado = " + aluno.getAlunoAprovado()+ " com média de = " + aluno.getMediaNota());
 		}
 	}
+}
+	
 }
 		
 		
