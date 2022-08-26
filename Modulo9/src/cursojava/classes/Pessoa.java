@@ -1,6 +1,6 @@
 package cursojava.classes;
-
-public class Pessoa {
+/* Classe pai(super)*/
+public abstract class Pessoa {
 
 	protected String nome;
 	protected int idade;
