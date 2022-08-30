@@ -4,13 +4,23 @@ import cursojava.interfaces.PermitirAcesso;
 
 public class Secretario extends Pessoa implements PermitirAcesso {
 
-	private String registro;
+	 private String registro;
 	private String nivelCargo;
-	private String experiencia;
+	private String experiencia;	
 	
 	private String login;
 	private String senha;
 	
+	
+	public Secretario(String login, String senha) {
+		this.login = login;
+		this.senha = senha;
+		
+	}
+	
+	public Secretario() {
+		
+	}
 
 	public String getRegistro() {
 		return registro;
@@ -36,26 +46,19 @@ public class Secretario extends Pessoa implements PermitirAcesso {
 		this.experiencia = experiencia;
 	}
 
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
+	@Override
+	public boolean autenticar(String login, String senha) {
 		this.login = login;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
 		this.senha = senha;
+		return autenticar();
 	}
 
 	@Override
 	public boolean autenticar() {
-		/*Retorna sim caso login e senha estejam corretos. */
-		return login.equals("admin") && senha.equals("admin"); 
+		// TODO Auto-generated method stub
+		return false;
 	}
+	
+	
 
 }
