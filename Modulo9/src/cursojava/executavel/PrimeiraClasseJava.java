@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import curso.java.classeauxiliares.FuncaoAutenticacao;
 import cursojava.classes.Aluno;
 import cursojava.classes.Disciplina;
 import cursojava.classes.Secretario;
@@ -19,11 +20,8 @@ public class PrimeiraClasseJava {
 		String login = JOptionPane.showInputDialog("Informe o login: ");
 		String senha = JOptionPane.showInputDialog("Informe a senha: ");
 		
-		PermitirAcesso permitirAcesso = new Secretario(login, senha);
+		if (new FuncaoAutenticacao(new Secretario(login, senha)).autenticar()){			
 		
-		if (permitirAcesso.autenticar()) {			
-		
-
 		List<Aluno> alunos = new ArrayList<Aluno>();
 		
 		/* É uma lista que dentro dela temos uma chave que identifica uma sequencia de valores também  */
